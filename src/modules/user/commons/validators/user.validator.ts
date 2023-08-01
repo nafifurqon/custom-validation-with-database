@@ -17,11 +17,9 @@ export class EmailExistValidator implements ValidatorConstraintInterface {
   async validate(value: string): Promise<boolean> {
     try {
       const isEmailExist = await this.userModel.checkEmailExist(value);
-      console.log('isEmailExist', isEmailExist);
       if (isEmailExist) return false;
       return true;
     } catch (e) {
-      console.log('e.message', e.message);
       return false;
     }
   }
